@@ -14,6 +14,8 @@ const name = process.argv[2];
 
 function displayResult(arr) {
   let count = 0;
+  console.log("Searching ...");
+  console.log(`Found ${arr.length} person(s) by the name ${name}:`);
   for (let i = 0; i < arr.length; i++) {
     count++;
     let firstName = arr[i]["first_name"];

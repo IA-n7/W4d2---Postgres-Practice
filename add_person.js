@@ -16,7 +16,7 @@ const lastName = process.argv[3];
 const birthDate = process.argv[4];
 
 knex.insert([{first_name: firstName, last_name: lastName,  birthdate: birthDate}]).into('famous_people')
-.then(function (id) {})
+.then()
 .finally(function() {
   knex.destroy();
 });

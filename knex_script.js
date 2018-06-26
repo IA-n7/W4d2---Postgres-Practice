@@ -15,6 +15,8 @@ const name = process.argv[2];
 
 function displayResult(arr) {
   let count = 0;
+  console.log("Searching ...");
+  console.log(`Found ${arr.length} person(s) by the name ${name}:`);
   for (let i = 0; i < arr.length; i++) {
     count++;
     let firstName = arr[i]["first_name"];
@@ -24,8 +26,10 @@ function displayResult(arr) {
   }
 }
 
-knex.select().from("famous_people").where("last_name", name).orWhere("first_name", name).then(function (data) {
+knex.select().from("famous_people").where("last_name", name).orWhere("first_name", name)
+.then(function (data) {
   displayResult(data)
-}).finally(function() {
+})
+.finally(function() {
   knex.destroy();
 });
